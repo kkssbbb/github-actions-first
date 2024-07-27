@@ -44,4 +44,4 @@ jobs:
         run: |
           echo "커스텀 환경변수 사용하기"
           echo $MY_NAME
-          echo ${{secret.MY_NAME}}
+          echo ${{ secret.MY_NAME }}
