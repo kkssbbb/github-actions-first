@@ -1,14 +1,29 @@
+# 워크 플로우 이름 지정
 name : 왜 안돼
 
+# Event : 어떤 이벤트가 발생했을 때 아래 job 로직을 실행시킬 것인지 지정
+# push : 코드가 푸시되었을 때
+# branches : 어떤 브랜치에 푸시되었을 때
 on:
   push:
     branches:
       - main
 
+# Job : 실제로 실행할 하나 이상의 job작업을 정의
+# Job 이 여러기면 기본적으로 병렬적으로 실행된다.
+# My-Deploy-Job : Job 이름을 지정
+# runs-on : job 이 실행될 환경을 지정
 jobs:
   My-Deploy-Job:
     runs-on: ubuntu-latest
-
+    # steps : job 이 실행될 때 실행할 단계를 정의
+    # 하나의 job 은 여러개의 step 으로 구성될 수 있다.
     steps:
-      - name:  왜 안 돼 출력하기
-        run: echo "왜 안 돼"
+      - name:  왜 안 돼 출력하기 # step 이름을 지정
+        run: echo "왜 안 돼" # 실행할 명령어를 지정 (리눅스 명령어)
+
+      - name: 명령어 여러줄 입력하기
+        run: | # | 를 사용하면 여러줄의 명령어를 입력할 수 있다.
+          echo "첫번째 줄"
+          echo "두번째 줄"
+          echo "세번째 줄"
