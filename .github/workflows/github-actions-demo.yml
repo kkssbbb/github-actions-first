@@ -40,8 +40,8 @@ jobs:
         # env: 환경변수를 지정할 수 있다.
         # 환경변수는 $로 접근할 수 있다.
         env:
-          MY_NAME: "John Doe"
+          MY_AGE: "26"
         run: |
           echo "커스텀 환경변수 사용하기"
-          echo $MY_NAME
-          echo ${{ secrets.MY_SECRET_KEY }}
+          echo $MY_AGE
+          echo ${{ secrets.MY_NAME }}
